@@ -51,14 +51,6 @@ jobs:
       - name: Test aws cli
         if: always()
         run: aws sts get-caller-identity
-
-      - name: Docker Login
-        if: always()
-        uses: docker/login-action@v3
-        with:
-          registry: ${{ env.REGISTRY }}
-          username: ${{ secrets.DOCKER_USER }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
       
       - name: Terraform Apply
         if: always()
